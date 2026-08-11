@@ -1440,11 +1440,11 @@ label { color:var(--muted); font-size:12px; }
 .tree-pathway-page .pathway-chat-button { box-shadow:0 10px 22px rgba(192,121,216,.2),0 0 0 5px rgba(255,255,255,.86); }
 .tree-pathway-page .pathway-chat-button:hover { box-shadow:0 14px 28px rgba(192,121,216,.24),0 0 0 5px rgba(255,255,255,.9); }
 .tree-pathway-page .tree-node { width:var(--node-width,198px); min-height:126px; padding:11px 12px 10px; }
-.tree-pathway-page .tree-node.process-node { width:var(--node-width,198px); min-height:140px; height:140px; padding:10px 11px; }
-.tree-pathway-page .tree-node.process-node .tree-node-head em { max-width:calc(var(--node-width,198px) - 42px); padding:4px 9px; font-size:13px; }
+.tree-pathway-page .tree-node.process-node { width:var(--node-width,198px); min-height:154px; height:154px; padding:10px 11px; }
+.tree-pathway-page .tree-node.process-node .tree-node-head em { max-width:calc(var(--node-width,198px) - 42px); padding:5px 10px; font-size:14px; }
 .tree-pathway-page .tree-node.process-node .tree-node-head i { width:23px; height:23px; font-size:12px; }
 .tree-pathway-page .tree-node.process-node strong { margin:0 0 5px; font-size:16px; }
-.tree-pathway-page .tree-stage-cards span { min-height:28px; padding:4px 8px; font-size:14px; }
+.tree-pathway-page .tree-node.process-node .tree-stage-cards span { min-height:32px; padding:5px 9px; font-size:17px !important; }
 .tree-pathway-page .tree-node-head em { max-width:calc(var(--node-width,198px) - 52px); padding:5px 9px; font-size:11.5px; }
 .tree-pathway-page .tree-node-head i { width:24px; height:24px; font-size:13px; }
 .tree-pathway-page .tree-node strong { font-size:16px; line-height:1.1; margin-bottom:8px; }
