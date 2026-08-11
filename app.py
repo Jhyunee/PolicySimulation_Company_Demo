@@ -120,13 +120,13 @@ def _send_chat(context: dict, question: str, history: list[dict]) -> tuple[str, 
     if not api_key:
         raise HTTPException(503, "Persona chat is not configured. Set DEEPSEEK_API_KEY in Railway Variables.")
     messages = [
-        {"role": "system", "content": "You are one stakeholder persona in an exploratory policy simulation. Respond naturally in English from a first-person perspective. Ground your answer in the supplied persona and selected pathway, name one key mechanism or constraint, and state uncertainty where appropriate. Use at most two short paragraphs and 3-5 complete sentences."},
+        {"role": "system", "content": "You are one stakeholder persona in an exploratory policy simulation. Respond naturally in English from a first-person perspective. Ground your answer in the supplied persona and selected pathway, name one key mechanism or constraint, and state uncertainty where appropriate. Return exactly 4 or 5 concise complete sentences in one short paragraph. Never exceed 5 sentences; do not add a preamble, heading, or bullet list."},
         {"role": "user", "content": json.dumps({"persona_profile": context["persona"], "simulation_target": context["target"], "policy_inputs": context["inputs"], "simulation_memory": context["memory"], "recent_dialogue": history[-4:], "user_question": question}, ensure_ascii=False)},
     ]
     response = requests.post(
         "https://api.deepseek.com/v1/chat/completions",
         headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-        json={"model": "deepseek-chat", "messages": messages, "temperature": 0.65, "max_tokens": 450},
+        json={"model": "deepseek-chat", "messages": messages, "temperature": 0.65, "max_tokens": 220},
         timeout=90,
     )
     if not response.ok:

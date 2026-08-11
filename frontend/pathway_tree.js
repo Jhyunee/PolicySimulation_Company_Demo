@@ -1323,7 +1323,7 @@ function renderPathwayChatButton(positions){
   if(!pos || !postCount || node.col !== TREE_PHASES.length - 1) return "";
   const w = nodeWidthTree(node);
   return `<button class="pathway-chat-button" data-open-path-chat="1" type="button"
-    style="--x:${pos.x + w + 18}px;--y:${pos.y - 24}px;">
+    style="--x:${pos.x + w + 94}px;--y:${pos.y - 24}px;">
     Chat!
   </button>`;
 }
