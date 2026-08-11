@@ -1740,6 +1740,7 @@ async function submitPathwayChat(question){
 
   const context = pathwayContextText(turn.path);
   const personaContext = personaPathwayContextText(selectedPost);
+  const chatPrompt = `Selected pathway:\n${context.slice(0, 1500)}\n\nPersona rationale:\n${personaContext.slice(0, 1000)}\n\nUser question:\n${question.slice(0, 800)}`;
   await Promise.all(turn.answers.map(async answer=>{
     const history = pathwayChatTurns
       .filter(t=>t.id !== id && t.path === turn.path && t.personaName === answer.personaName)
@@ -1758,7 +1759,7 @@ async function submitPathwayChat(question){
         body:JSON.stringify({
           persona_name:answer.personaName,
           policy_key:currentPolicyKey,
-          question:`The user selected the following complete policy pathway:\n${context}\n\nYour prior position and rationale within this pathway are:\n${personaContext}\n\nUser question: ${question}\n\nRespond in English from your stakeholder perspective. Ground your response in the selected pathway and your prior predictions, rationale, and constraints. State your core position first, then explain only one key mechanism or constraint and one limitation. Use no more than two paragraphs and 3-5 concise sentences. Do not repeat the pathway description or numeric values at length.`,
+          question:chatPrompt,
           history,
           participant_id:PolicyStudy.participantId || null,
           pathway:turn.path,
