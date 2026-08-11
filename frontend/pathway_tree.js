@@ -1514,8 +1514,8 @@ function renderTree(preserveViewport=true, viewportAnchor=null){
   const nodes = visibleNodes();
   const layout = layoutNodes(nodes);
   const canvasSection = `<section class="tree-layout">
+      <div class="tree-zoom-controls" role="group" aria-label="Canvas zoom controls"><button type="button" data-tree-zoom="out" title="Zoom out" ${treeViewScale <= 0.58 ? "disabled" : ""}>−</button><span>${Math.round(treeViewScale * 100)}%</span><button type="button" data-tree-zoom="in" title="Zoom in" ${treeViewScale >= 1.05 ? "disabled" : ""}>+</button></div>
       <div class="tree-canvas"${TREE_BASELINE_MODE ? ` style="height:${Math.ceil(layout.height * treeViewScale)}px;"` : ""}>
-        <div class="tree-zoom-controls" role="group" aria-label="Canvas zoom controls"><button type="button" data-tree-zoom="out" title="Zoom out" ${treeViewScale <= 0.58 ? "disabled" : ""}>−</button><span>${Math.round(treeViewScale * 100)}%</span><button type="button" data-tree-zoom="in" title="Zoom in" ${treeViewScale >= 1.05 ? "disabled" : ""}>+</button></div>
         <div class="tree-canvas-stage" style="width:${Math.ceil(layout.width * treeViewScale)}px;height:${Math.ceil(layout.height * treeViewScale)}px;">
           <div class="tree-canvas-content" style="--tree-height:${layout.height}px;--tree-width:${layout.width}px;width:${layout.width}px;height:${layout.height}px;--tree-view-scale:${treeViewScale};">
             ${renderTreeLines(nodes, layout.positions, layout.height, layout.width)}

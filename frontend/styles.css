@@ -687,7 +687,7 @@ label { color:var(--muted); font-size:12px; }
 .minimap-nodes rect { fill:rgba(255,255,255,.9); stroke:var(--lane); stroke-width:1.5; vector-effect:non-scaling-stroke; }
 .minimap-nodes rect.focused { fill:var(--lane); stroke:var(--tree-active); stroke-width:2.5; }
 .minimap-view { fill:rgba(183,101,197,.1); stroke:var(--tree-active); stroke-width:2; vector-effect:non-scaling-stroke; pointer-events:none; }
-.tree-layout { display:grid; grid-template-rows:minmax(0, 1fr); gap:16px; height:100%; min-height:0; }
+.tree-layout { position:relative; display:grid; grid-template-rows:minmax(0, 1fr); gap:16px; height:100%; min-height:0; }
 .tree-canvas { position:relative; overflow:auto; border:1px solid var(--tree-border); border-radius:8px; background:
   radial-gradient(circle at 1px 1px, rgba(159,161,255,.18) 1px, transparent 0) 0 0/18px 18px,
   linear-gradient(180deg,#fff 0%, #fbfaf7 100%);
@@ -701,11 +701,11 @@ label { color:var(--muted); font-size:12px; }
 .tree-canvas { cursor:grab; touch-action:none; }
 .tree-canvas.is-panning { cursor:grabbing; user-select:none; }
 .tree-canvas button, .tree-canvas a { cursor:pointer; }
-.tree-zoom-controls { position:absolute; top:14px; left:14px; z-index:20; display:flex; align-items:center; width:max-content; border:1px solid var(--tree-border); border-radius:8px; background:rgba(255,255,255,.94); box-shadow:0 5px 14px rgba(25,25,30,.12); overflow:hidden; }
-.tree-zoom-controls button { width:32px; height:30px; border:0; background:#fff; color:var(--tree-purple); font-size:20px; line-height:1; font-weight:800; }
+.tree-zoom-controls { position:absolute; top:16px; left:16px; z-index:30; display:flex; align-items:center; width:max-content; border:1px solid var(--tree-border); border-radius:10px; background:rgba(255,255,255,.96); box-shadow:0 5px 14px rgba(25,25,30,.12); overflow:hidden; }
+.tree-zoom-controls button { width:40px; height:38px; border:0; background:#fff; color:var(--tree-purple); font-size:25px; line-height:1; font-weight:800; }
 .tree-zoom-controls button:hover:not(:disabled) { background:var(--tree-block); }
 .tree-zoom-controls button:disabled { color:var(--faint); cursor:not-allowed; }
-.tree-zoom-controls span { min-width:45px; border-left:1px solid var(--tree-border); border-right:1px solid var(--tree-border); color:var(--muted); font-size:11px; font-weight:900; line-height:30px; text-align:center; }
+.tree-zoom-controls span { min-width:56px; border-left:1px solid var(--tree-border); border-right:1px solid var(--tree-border); color:var(--muted); font-size:13px; font-weight:900; line-height:38px; text-align:center; }
 .tree-phase-inspector .tree-minimap { margin-top:10px; border-radius:8px; padding:9px; box-shadow:none; }
 .tree-phase-inspector .minimap-frame { height:108px; border-radius:7px; }
 .tree-canvas::after { content:none; }
@@ -721,10 +721,10 @@ label { color:var(--muted); font-size:12px; }
 .tree-link-layer path.selected { stroke:var(--tree-active); stroke-width:7; opacity:1; filter:drop-shadow(0 3px 5px rgba(209,61,245,.34)); }
 .tree-feature-label { position:absolute; left:var(--x); top:var(--y); z-index:4; display:flex; align-items:center; gap:6px; pointer-events:none;
   color:#fff; filter:drop-shadow(0 5px 8px rgba(43,42,42,.16)); }
-.tree-feature-label b { display:inline-flex; align-items:center; justify-content:center; min-width:40px; height:34px; border-radius:10px;
-  background:var(--tree-purple); font-size:14.5px; font-weight:900; }
+.tree-feature-label b { display:inline-flex; align-items:center; justify-content:center; min-width:44px; height:38px; border-radius:11px;
+  background:var(--tree-purple); font-size:16px; font-weight:900; }
 .tree-feature-label span { background:#fff; border:1px solid var(--tree-purple-soft); color:var(--tree-purple); border-radius:999px;
-  padding:7px 12px; font-size:12.5px; font-weight:900; }
+  padding:8px 14px; font-size:14px; font-weight:900; }
 .tree-node { position:absolute; left:var(--x); top:var(--y); width:var(--node-width, 178px); min-height:114px; border:1.5px solid var(--tree-border);
   border-radius:10px; background:rgba(255,255,255,.97); color:var(--text); box-shadow:0 5px 18px rgba(25,25,30,.09); z-index:3;
   padding:10px 11px 9px; text-align:left; cursor:pointer; transform:translateY(-50%) scale(1); opacity:1;
@@ -789,13 +789,13 @@ label { color:var(--muted); font-size:12px; }
 .tree-node.focused .tree-metric small,
 .tree-node.focused .tree-metric b { color:#fff; }
 .node-discussion-button { position:absolute; left:var(--x); top:var(--y); z-index:5; border:1px solid var(--tree-active-soft);
-  display:flex; width:108px; min-height:50px; flex-direction:column; align-items:center; justify-content:center; gap:1px;
-  background:#fff; color:var(--tree-active); border-radius:14px; padding:6px 10px; font-size:13.5px; line-height:1.12;
+  display:flex; width:116px; min-height:54px; flex-direction:column; align-items:center; justify-content:center; gap:1px;
+  background:#fff; color:var(--tree-active); border-radius:14px; padding:6px 10px; font-size:15px; line-height:1.12;
   font-weight:900; cursor:pointer; box-shadow:0 8px 18px rgba(209,61,245,.2); }
 .node-discussion-button span { display:block; }
 .node-discussion-button:hover { background:var(--tree-active); color:#fff; border-color:var(--tree-active); }
-.pathway-chat-button { position:absolute; left:var(--x); top:var(--y); z-index:6; width:66px; height:66px; border-radius:50%;
-  border:2px solid var(--tree-active); background:var(--tree-active); color:#fff; font-size:16px; font-weight:950; cursor:pointer;
+.pathway-chat-button { position:absolute; left:var(--x); top:var(--y); z-index:6; width:70px; height:70px; border-radius:50%;
+  border:2px solid var(--tree-active); background:var(--tree-active); color:#fff; font-size:17px; font-weight:950; cursor:pointer;
   box-shadow:0 10px 22px rgba(209,61,245,.28), 0 0 0 5px rgba(255,255,255,.86); }
 .pathway-chat-button:hover { transform:translateY(-2px); box-shadow:0 14px 28px rgba(209,61,245,.34), 0 0 0 5px rgba(255,255,255,.9); }
 .pathway-report-button { position:absolute; left:var(--x); top:var(--y); z-index:6; display:flex; align-items:center;
