@@ -781,9 +781,9 @@ label { color:var(--muted); font-size:12px; }
 .tree-node.focused .tree-node-head i { color:#fff; background:rgba(255,255,255,.16); border-color:rgba(255,255,255,.35); }
 .tree-node strong { display:block; font-size:16px; line-height:1.08; margin-bottom:7px; letter-spacing:0; text-align:left; }
 .tree-node-values { display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-top:0; }
-.tree-metric { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; min-height:34px; border:1px solid var(--tree-border); border-radius:7px; padding:5px 5px;
+.tree-metric { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; min-height:46px; border:1px solid var(--tree-border); border-radius:7px; padding:6px 6px;
   background:var(--tree-block); min-width:0; }
-.tree-metric small { color:var(--muted); font-size:13px; line-height:1.08; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tree-metric small { display:-webkit-box; max-width:100%; overflow:hidden; color:var(--muted); font-size:15px; line-height:1.08; text-align:center; text-overflow:ellipsis; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
 .tree-metric b { font-size:13.5px; line-height:1.05; color:var(--text); font-variant-numeric:tabular-nums; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .tree-node.focused .tree-metric { border-color:rgba(255,255,255,.35); background:rgba(255,255,255,.16); }
 .tree-node.focused .tree-metric small,
@@ -1448,7 +1448,7 @@ label { color:var(--muted); font-size:12px; }
 .tree-pathway-page .tree-node-head em { max-width:calc(var(--node-width,198px) - 52px); padding:5px 9px; font-size:11.5px; }
 .tree-pathway-page .tree-node-head i { width:24px; height:24px; font-size:13px; }
 .tree-pathway-page .tree-node strong { font-size:16px; line-height:1.1; margin-bottom:8px; }
-.tree-pathway-page .tree-metric small { font-size:13px; }
+.tree-pathway-page .tree-metric small { font-size:15px; }
 .tree-pathway-page .tree-metric b { font-size:14px; }
 .tree-pathway-page .storage-summary { padding:13px; }
 .tree-pathway-page .storage-summary span { font-size:10.5px; }
