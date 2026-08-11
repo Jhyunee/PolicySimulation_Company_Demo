@@ -225,7 +225,7 @@ let frameworkChatUsage = {
   limit: FRAMEWORK_CHAT_LIMIT,
   remaining: TREE_BASELINE_MODE ? null : FRAMEWORK_CHAT_LIMIT,
 };
-const TREE_VIEW_SCALE = 0.72;
+let treeViewScale = 0.72;
 let currentPolicyMeta = {
   key:"usa/chi_nsa",
   label:"No Surprises Act",
@@ -456,10 +456,10 @@ function updateMiniMapViewport(){
   const mapWidth = Number(svg.dataset.mapWidth || 0);
   const mapHeight = Number(svg.dataset.mapHeight || 0);
   if(!mapWidth || !mapHeight) return;
-  viewport.setAttribute("x", String(Math.max(0, canvas.scrollLeft / TREE_VIEW_SCALE)));
-  viewport.setAttribute("y", String(Math.max(0, canvas.scrollTop / TREE_VIEW_SCALE)));
-  viewport.setAttribute("width", String(Math.min(mapWidth, canvas.clientWidth / TREE_VIEW_SCALE)));
-  viewport.setAttribute("height", String(Math.min(mapHeight, canvas.clientHeight / TREE_VIEW_SCALE)));
+  viewport.setAttribute("x", String(Math.max(0, canvas.scrollLeft / treeViewScale)));
+  viewport.setAttribute("y", String(Math.max(0, canvas.scrollTop / treeViewScale)));
+  viewport.setAttribute("width", String(Math.min(mapWidth, canvas.clientWidth / treeViewScale)));
+  viewport.setAttribute("height", String(Math.min(mapHeight, canvas.clientHeight / treeViewScale)));
 }
 function moveCanvasFromMiniMap(event){
   const canvas = document.querySelector(".tree-canvas");
@@ -469,9 +469,28 @@ function moveCanvasFromMiniMap(event){
   point.x = event.clientX;
   point.y = event.clientY;
   const mapped = point.matrixTransform(svg.getScreenCTM().inverse());
-  canvas.scrollLeft = Math.max(0, mapped.x * TREE_VIEW_SCALE - canvas.clientWidth / 2);
-  canvas.scrollTop = Math.max(0, mapped.y * TREE_VIEW_SCALE - canvas.clientHeight / 2);
+  canvas.scrollLeft = Math.max(0, mapped.x * treeViewScale - canvas.clientWidth / 2);
+  canvas.scrollTop = Math.max(0, mapped.y * treeViewScale - canvas.clientHeight / 2);
   updateMiniMapViewport();
+}
+
+function setTreeViewScale(nextScale){
+  const next = Math.max(0.58, Math.min(1.05, Math.round(nextScale * 100) / 100));
+  if(next === treeViewScale) return;
+  const canvas = document.querySelector(".tree-canvas");
+  const center = canvas ? {
+    x:(canvas.scrollLeft + canvas.clientWidth / 2) / treeViewScale,
+    y:(canvas.scrollTop + canvas.clientHeight / 2) / treeViewScale,
+  } : null;
+  treeViewScale = next;
+  renderTree(false);
+  requestAnimationFrame(()=>{
+    const nextCanvas = document.querySelector(".tree-canvas");
+    if(!nextCanvas || !center) return;
+    nextCanvas.scrollLeft = Math.max(0, center.x * treeViewScale - nextCanvas.clientWidth / 2);
+    nextCanvas.scrollTop = Math.max(0, center.y * treeViewScale - nextCanvas.clientHeight / 2);
+    updateMiniMapViewport();
+  });
 }
 
 function bindTreeCanvasPan(canvas){
@@ -1495,9 +1514,10 @@ function renderTree(preserveViewport=true, viewportAnchor=null){
   const nodes = visibleNodes();
   const layout = layoutNodes(nodes);
   const canvasSection = `<section class="tree-layout">
-      <div class="tree-canvas"${TREE_BASELINE_MODE ? ` style="height:${Math.ceil(layout.height * TREE_VIEW_SCALE)}px;"` : ""}>
-        <div class="tree-canvas-stage" style="width:${Math.ceil(layout.width * TREE_VIEW_SCALE)}px;height:${Math.ceil(layout.height * TREE_VIEW_SCALE)}px;">
-          <div class="tree-canvas-content" style="--tree-height:${layout.height}px;--tree-width:${layout.width}px;width:${layout.width}px;height:${layout.height}px;--tree-view-scale:${TREE_VIEW_SCALE};">
+      <div class="tree-canvas"${TREE_BASELINE_MODE ? ` style="height:${Math.ceil(layout.height * treeViewScale)}px;"` : ""}>
+        <div class="tree-zoom-controls" role="group" aria-label="Canvas zoom controls"><button type="button" data-tree-zoom="out" title="Zoom out" ${treeViewScale <= 0.58 ? "disabled" : ""}>−</button><span>${Math.round(treeViewScale * 100)}%</span><button type="button" data-tree-zoom="in" title="Zoom in" ${treeViewScale >= 1.05 ? "disabled" : ""}>+</button></div>
+        <div class="tree-canvas-stage" style="width:${Math.ceil(layout.width * treeViewScale)}px;height:${Math.ceil(layout.height * treeViewScale)}px;">
+          <div class="tree-canvas-content" style="--tree-height:${layout.height}px;--tree-width:${layout.width}px;width:${layout.width}px;height:${layout.height}px;--tree-view-scale:${treeViewScale};">
             ${renderTreeLines(nodes, layout.positions, layout.height, layout.width)}
             ${nodes.map(n=>renderTreeNode(n, layout.positions.get(n.path))).join("")}
             ${renderDiscussionButton(layout.positions)}
@@ -1687,6 +1707,9 @@ function renderTree(preserveViewport=true, viewportAnchor=null){
     submitPathwayChat(question);
   };
   const canvas = root.querySelector(".tree-canvas");
+  root.querySelectorAll("[data-tree-zoom]").forEach(button=>button.onclick=()=>{
+    setTreeViewScale(treeViewScale + (button.dataset.treeZoom === "in" ? 0.06 : -0.06));
+  });
   if(canvas){
     canvas.onscroll = updateMiniMapViewport;
     bindTreeCanvasPan(canvas);

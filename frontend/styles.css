@@ -701,6 +701,11 @@ label { color:var(--muted); font-size:12px; }
 .tree-canvas { cursor:grab; touch-action:none; }
 .tree-canvas.is-panning { cursor:grabbing; user-select:none; }
 .tree-canvas button, .tree-canvas a { cursor:pointer; }
+.tree-zoom-controls { position:absolute; top:14px; left:14px; z-index:20; display:flex; align-items:center; width:max-content; border:1px solid var(--tree-border); border-radius:8px; background:rgba(255,255,255,.94); box-shadow:0 5px 14px rgba(25,25,30,.12); overflow:hidden; }
+.tree-zoom-controls button { width:32px; height:30px; border:0; background:#fff; color:var(--tree-purple); font-size:20px; line-height:1; font-weight:800; }
+.tree-zoom-controls button:hover:not(:disabled) { background:var(--tree-block); }
+.tree-zoom-controls button:disabled { color:var(--faint); cursor:not-allowed; }
+.tree-zoom-controls span { min-width:45px; border-left:1px solid var(--tree-border); border-right:1px solid var(--tree-border); color:var(--muted); font-size:11px; font-weight:900; line-height:30px; text-align:center; }
 .tree-phase-inspector .tree-minimap { margin-top:10px; border-radius:8px; padding:9px; box-shadow:none; }
 .tree-phase-inspector .minimap-frame { height:108px; border-radius:7px; }
 .tree-canvas::after { content:none; }
@@ -729,11 +734,11 @@ label { color:var(--muted); font-size:12px; }
 .tree-node.process-node .tree-node-head { margin-bottom:3px; gap:6px; }
 .tree-node.process-node .tree-node-head em { max-width:calc(var(--node-width, 178px) - 38px); padding:4px 7px; font-size:10px; }
 .tree-node.process-node .tree-node-head i { width:21px; height:21px; font-size:11.5px; }
-.tree-node.process-node strong { margin:0 0 4px; text-align:left; font-size:15px; line-height:1.12; white-space:normal; overflow:visible; }
+.tree-node.process-node strong { margin:0 0 4px; text-align:left; font-size:16px; line-height:1.12; white-space:normal; overflow:visible; }
 .tree-stage-cards { display:grid; grid-template-columns:1fr; gap:3px; }
-.tree-stage-cards span { display:flex; min-width:0; min-height:22px; align-items:center; justify-content:center; padding:3px 7px; border:1px solid var(--tree-border); border-radius:7px; background:var(--tree-block); color:var(--text); font-size:10.8px; font-weight:850; line-height:1.13; text-align:center; }
+.tree-stage-cards span { display:flex; min-width:0; min-height:22px; align-items:center; justify-content:center; padding:3px 7px; border:1px solid var(--tree-border); border-radius:7px; background:var(--tree-block); color:var(--text); font-size:11.5px; font-weight:850; line-height:1.13; text-align:center; }
 .tree-node-mechanism { display:block; min-width:0; margin-bottom:5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
-  color:var(--muted); font-size:9.8px; line-height:1.15; font-weight:800; text-align:left; }
+  color:var(--muted); font-size:10.5px; line-height:1.15; font-weight:800; text-align:left; }
 .tree-node-compact-values { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:3px; }
 .tree-node-compact-values b { display:flex; min-width:0; min-height:25px; align-items:center; justify-content:center;
   overflow:hidden; text-overflow:ellipsis; white-space:nowrap; border:1px solid var(--tree-border); border-radius:6px;
@@ -744,7 +749,7 @@ label { color:var(--muted); font-size:12px; }
 .tree-node-constraint-list em { display:block; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
   border:1px solid color-mix(in srgb,var(--lane),var(--tree-border) 62%); border-radius:6px;
   background:color-mix(in srgb,var(--lane),#fff 90%); color:color-mix(in srgb,var(--lane),#2b2a2a 35%);
-  padding:5px 6px; font-size:9.5px; line-height:1; font-style:normal; font-weight:850; text-align:left; }
+  padding:5px 6px; font-size:10px; line-height:1; font-style:normal; font-weight:850; text-align:left; }
 .tree-node.focused .tree-node-constraint-list em { color:#fff; background:rgba(255,255,255,.16); border-color:rgba(255,255,255,.32); }
 .tree-impact-headline { display:flex; min-width:0; min-height:25px; align-items:center; justify-content:space-between; gap:6px;
   border:1px solid var(--tree-border); border-radius:6px; background:var(--tree-block); padding:4px 6px; }
@@ -774,12 +779,12 @@ label { color:var(--muted); font-size:12px; }
   background:var(--tree-block); border:1px solid var(--tree-border); color:var(--lane); font-style:normal; font-size:12px; font-weight:950; }
 .tree-node.focused .tree-node-head em { color:var(--lane); background:#fff; }
 .tree-node.focused .tree-node-head i { color:#fff; background:rgba(255,255,255,.16); border-color:rgba(255,255,255,.35); }
-.tree-node strong { display:block; font-size:15px; line-height:1.08; margin-bottom:7px; letter-spacing:0; text-align:left; }
+.tree-node strong { display:block; font-size:16px; line-height:1.08; margin-bottom:7px; letter-spacing:0; text-align:left; }
 .tree-node-values { display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-top:0; }
 .tree-metric { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; border:1px solid var(--tree-border); border-radius:7px; padding:5px 5px;
   background:var(--tree-block); min-width:0; }
-.tree-metric small { color:var(--muted); font-size:10.8px; line-height:1.05; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.tree-metric b { font-size:13px; line-height:1.05; color:var(--text); font-variant-numeric:tabular-nums; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tree-metric small { color:var(--muted); font-size:11.2px; line-height:1.05; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tree-metric b { font-size:13.5px; line-height:1.05; color:var(--text); font-variant-numeric:tabular-nums; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .tree-node.focused .tree-metric { border-color:rgba(255,255,255,.35); background:rgba(255,255,255,.16); }
 .tree-node.focused .tree-metric small,
 .tree-node.focused .tree-metric b { color:#fff; }
@@ -941,7 +946,7 @@ label { color:var(--muted); font-size:12px; }
 .discussion-network path { fill:none; stroke:#b8bdd3; stroke-width:2.5; stroke-linecap:round; }
 .discussion-network circle { display:none; }
 .round-person { position:absolute; width:74px; border:0; background:transparent; cursor:pointer; z-index:8; display:flex; flex-direction:column; align-items:center; gap:2px;
-  color:var(--muted); font-size:10px; font-weight:850; padding:0; transition:transform .18s, filter .18s; }
+  color:var(--muted); font-size:11px; font-weight:850; padding:0; transition:transform .18s, filter .18s; }
 .round-person span { max-width:72px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; background:rgba(255,255,255,.82); border:1px solid var(--border);
   border-radius:999px; padding:1px 6px; }
 .round-person.active { transform:translateY(-5px) scale(1.08); filter:drop-shadow(0 7px 8px rgba(43,42,42,.18)); }
@@ -959,9 +964,9 @@ label { color:var(--muted); font-size:12px; }
 .seat-0.active { transform:translateX(-50%) translateY(-5px) scale(1.08); }
 .discussion-card { position:absolute; z-index:5; width:390px; height:184px; box-sizing:border-box; overflow:hidden; background:var(--bubble); color:#fff;
   border-radius:8px; padding:14px 16px 13px; box-shadow:0 9px 18px rgba(43,42,42,.18); border:1px solid rgba(43,42,42,.1);
-  font-size:12px; line-height:1.42; text-align:left; opacity:0;
+  font-size:13px; line-height:1.42; text-align:left; opacity:0;
   animation:speechPop .28s ease both; animation-delay:var(--delay, 0s); }
-.discussion-card b { display:block; margin-bottom:7px; color:rgba(255,255,255,.86); font-size:10.5px; line-height:1; }
+.discussion-card b { display:block; margin-bottom:7px; color:rgba(255,255,255,.86); font-size:11.5px; line-height:1; }
 .discussion-card p { margin:0; display:-webkit-box; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:6; }
 .discussion-card::after { content:""; position:absolute; width:13px; height:13px; background:var(--bubble); transform:rotate(45deg); }
 .card-0 { left:50%; top:28px; transform:translateX(-50%); }
