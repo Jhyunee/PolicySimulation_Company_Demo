@@ -721,10 +721,10 @@ label { color:var(--muted); font-size:12px; }
 .tree-link-layer path.selected { stroke:var(--tree-active); stroke-width:7; opacity:1; filter:drop-shadow(0 3px 5px rgba(209,61,245,.34)); }
 .tree-feature-label { position:absolute; left:var(--x); top:var(--y); z-index:4; display:flex; align-items:center; gap:6px; pointer-events:none;
   color:#fff; filter:drop-shadow(0 5px 8px rgba(43,42,42,.16)); }
-.tree-feature-label b { display:inline-flex; align-items:center; justify-content:center; min-width:34px; height:30px; border-radius:10px;
-  background:var(--tree-purple); font-size:13px; font-weight:900; }
+.tree-feature-label b { display:inline-flex; align-items:center; justify-content:center; min-width:40px; height:34px; border-radius:10px;
+  background:var(--tree-purple); font-size:14.5px; font-weight:900; }
 .tree-feature-label span { background:#fff; border:1px solid var(--tree-purple-soft); color:var(--tree-purple); border-radius:999px;
-  padding:6px 10px; font-size:11px; font-weight:900; }
+  padding:7px 12px; font-size:12.5px; font-weight:900; }
 .tree-node { position:absolute; left:var(--x); top:var(--y); width:var(--node-width, 178px); min-height:114px; border:1.5px solid var(--tree-border);
   border-radius:10px; background:rgba(255,255,255,.97); color:var(--text); box-shadow:0 5px 18px rgba(25,25,30,.09); z-index:3;
   padding:10px 11px 9px; text-align:left; cursor:pointer; transform:translateY(-50%) scale(1); opacity:1;
@@ -789,13 +789,13 @@ label { color:var(--muted); font-size:12px; }
 .tree-node.focused .tree-metric small,
 .tree-node.focused .tree-metric b { color:#fff; }
 .node-discussion-button { position:absolute; left:var(--x); top:var(--y); z-index:5; border:1px solid var(--tree-active-soft);
-  display:flex; width:98px; min-height:46px; flex-direction:column; align-items:center; justify-content:center; gap:1px;
-  background:#fff; color:var(--tree-active); border-radius:14px; padding:6px 9px; font-size:12.5px; line-height:1.12;
+  display:flex; width:108px; min-height:50px; flex-direction:column; align-items:center; justify-content:center; gap:1px;
+  background:#fff; color:var(--tree-active); border-radius:14px; padding:6px 10px; font-size:13.5px; line-height:1.12;
   font-weight:900; cursor:pointer; box-shadow:0 8px 18px rgba(209,61,245,.2); }
 .node-discussion-button span { display:block; }
 .node-discussion-button:hover { background:var(--tree-active); color:#fff; border-color:var(--tree-active); }
-.pathway-chat-button { position:absolute; left:var(--x); top:var(--y); z-index:6; width:62px; height:62px; border-radius:50%;
-  border:2px solid var(--tree-active); background:var(--tree-active); color:#fff; font-size:15px; font-weight:950; cursor:pointer;
+.pathway-chat-button { position:absolute; left:var(--x); top:var(--y); z-index:6; width:66px; height:66px; border-radius:50%;
+  border:2px solid var(--tree-active); background:var(--tree-active); color:#fff; font-size:16px; font-weight:950; cursor:pointer;
   box-shadow:0 10px 22px rgba(209,61,245,.28), 0 0 0 5px rgba(255,255,255,.86); }
 .pathway-chat-button:hover { transform:translateY(-2px); box-shadow:0 14px 28px rgba(209,61,245,.34), 0 0 0 5px rgba(255,255,255,.9); }
 .pathway-report-button { position:absolute; left:var(--x); top:var(--y); z-index:6; display:flex; align-items:center;
