@@ -67,7 +67,7 @@ h2{margin:0;font-size:26px;letter-spacing:0;line-height:1.2}
 .kg-overlay-legend>div{display:flex;flex-wrap:wrap;gap:7px 12px;margin-top:7px}.kg-overlay-title{display:block;color:var(--muted);font-family:"DM Mono",monospace;font-size:10px;font-weight:700;text-transform:uppercase}.kg-overlay-item{display:inline-flex;align-items:center;gap:5px;color:#626777;font-size:11px;font-weight:700}.kg-overlay-item i{display:block;width:8px;height:8px;border-radius:50%}
 .graph-sidebar{border-left:1px solid var(--line);padding:26px;background:#fcfcfe;overflow:auto}
 .node-detail{border-top:1px solid var(--line);padding-top:18px;margin-top:18px}.node-detail b{font-size:17px}.node-detail p{color:var(--muted);font-size:14px;line-height:1.6}
-.graph-next{margin-top:16px;width:100%}
+.graph-next{margin-top:16px;width:100%}.graph-next.demo-action.light{background:var(--ink)}.graph-next.demo-action.light:hover{background:#343744}
 .persona-grid{display:grid;grid-auto-rows:minmax(590px,max-content);grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;align-items:stretch}
 .persona-card{display:flex;min-width:0;min-height:590px;box-sizing:border-box;flex-direction:column;border:1px solid var(--line);border-radius:9px;background:var(--paper);padding:21px;box-shadow:0 8px 26px rgba(31,34,50,.04)}
 .persona-card-head{display:flex;align-items:center;gap:13px}.persona-avatar{display:grid;flex:0 0 auto;place-items:center;width:64px;height:64px;overflow:hidden;border:2px solid var(--accent);border-radius:50%;background:var(--accent-soft);box-shadow:0 4px 12px rgba(31,34,50,.1)}.persona-avatar img{display:block;width:100%;height:100%;object-fit:cover}
