@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Policy Simulation Research Demo</title>
+<link rel="stylesheet" href="research_demo.css?v=demo-surface-20260811a" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+</head>
+<body>
+<main class="demo-shell">
+  <header class="demo-header">
+    <a class="demo-brand" href="research_demo.html"><i data-lucide="waypoints"></i><span>POLICY EXPLORATION</span></a>
+    <div class="demo-case"><span>Prepared demonstration</span><b>Expanded Child Tax Credit</b></div>
+    <div class="demo-status"><i data-lucide="check-circle-2"></i><span>Pipeline ready</span></div>
+  </header>
+
+  <nav class="demo-steps" aria-label="Research pipeline stages">
+    <button class="demo-step active" data-stage="source"><b>01</b><span>Policy document</span></button>
+    <button class="demo-step" data-stage="graph"><b>02</b><span>Knowledge graph</span></button>
+    <button class="demo-step" data-stage="personas"><b>03</b><span>Stakeholder personas</span></button>
+    <button class="demo-step" data-stage="pathways"><b>04</b><span>Branching simulation</span></button>
+  </nav>
+
+  <section id="demoApp" class="demo-app" aria-live="polite"></section>
+</main>
+<script src="research_demo.js?v=demo-public-deploy-20260811a"></script>
+</body>
+</html>
