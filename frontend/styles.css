@@ -729,14 +729,14 @@ label { color:var(--muted); font-size:12px; }
   border-radius:10px; background:rgba(255,255,255,.97); color:var(--text); box-shadow:0 5px 18px rgba(25,25,30,.09); z-index:3;
   padding:10px 11px 9px; text-align:left; cursor:pointer; transform:translateY(-50%) scale(1); opacity:1;
   transition:transform .14s, box-shadow .14s, border-color .14s, background .14s; }
-.tree-node.process-node { width:var(--node-width, 178px); min-height:114px; height:114px;
+.tree-node.process-node { width:var(--node-width, 178px); min-height:132px; height:132px;
   display:flex; flex-direction:column; justify-content:center; padding:9px 10px; }
 .tree-node.process-node .tree-node-head { margin-bottom:3px; gap:6px; }
-.tree-node.process-node .tree-node-head em { max-width:calc(var(--node-width, 178px) - 38px); padding:4px 7px; font-size:10px; }
+.tree-node.process-node .tree-node-head em { max-width:calc(var(--node-width, 178px) - 38px); padding:4px 8px; font-size:12.5px; }
 .tree-node.process-node .tree-node-head i { width:21px; height:21px; font-size:11.5px; }
 .tree-node.process-node strong { margin:0 0 4px; text-align:left; font-size:16px; line-height:1.12; white-space:normal; overflow:visible; }
 .tree-stage-cards { display:grid; grid-template-columns:1fr; gap:3px; }
-.tree-stage-cards span { display:flex; min-width:0; min-height:22px; align-items:center; justify-content:center; padding:3px 7px; border:1px solid var(--tree-border); border-radius:7px; background:var(--tree-block); color:var(--text); font-size:11.5px; font-weight:850; line-height:1.13; text-align:center; }
+.tree-stage-cards span { display:flex; min-width:0; min-height:28px; align-items:center; justify-content:center; padding:4px 8px; border:1px solid var(--tree-border); border-radius:7px; background:var(--tree-block); color:var(--text); font-size:14px; font-weight:850; line-height:1.13; text-align:center; }
 .tree-node-mechanism { display:block; min-width:0; margin-bottom:5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
   color:var(--muted); font-size:10.5px; line-height:1.15; font-weight:800; text-align:left; }
 .tree-node-compact-values { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:3px; }
@@ -781,9 +781,9 @@ label { color:var(--muted); font-size:12px; }
 .tree-node.focused .tree-node-head i { color:#fff; background:rgba(255,255,255,.16); border-color:rgba(255,255,255,.35); }
 .tree-node strong { display:block; font-size:16px; line-height:1.08; margin-bottom:7px; letter-spacing:0; text-align:left; }
 .tree-node-values { display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-top:0; }
-.tree-metric { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; min-height:46px; border:1px solid var(--tree-border); border-radius:7px; padding:6px 6px;
+.tree-metric { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; border:1px solid var(--tree-border); border-radius:7px; padding:5px 5px;
   background:var(--tree-block); min-width:0; }
-.tree-metric small { display:-webkit-box; max-width:100%; overflow:hidden; color:var(--muted); font-size:15px; line-height:1.08; text-align:center; text-overflow:ellipsis; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
+.tree-metric small { color:var(--muted); font-size:11.2px; line-height:1.05; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .tree-metric b { font-size:13.5px; line-height:1.05; color:var(--text); font-variant-numeric:tabular-nums; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .tree-node.focused .tree-metric { border-color:rgba(255,255,255,.35); background:rgba(255,255,255,.16); }
 .tree-node.focused .tree-metric small,
@@ -1440,15 +1440,15 @@ label { color:var(--muted); font-size:12px; }
 .tree-pathway-page .pathway-chat-button { box-shadow:0 10px 22px rgba(192,121,216,.2),0 0 0 5px rgba(255,255,255,.86); }
 .tree-pathway-page .pathway-chat-button:hover { box-shadow:0 14px 28px rgba(192,121,216,.24),0 0 0 5px rgba(255,255,255,.9); }
 .tree-pathway-page .tree-node { width:var(--node-width,198px); min-height:126px; padding:11px 12px 10px; }
-.tree-pathway-page .tree-node.process-node { width:var(--node-width,198px); min-height:126px; height:126px; padding:10px 11px; }
-.tree-pathway-page .tree-node.process-node .tree-node-head em { max-width:calc(var(--node-width,198px) - 42px); padding:4px 8px; font-size:11px; }
+.tree-pathway-page .tree-node.process-node { width:var(--node-width,198px); min-height:140px; height:140px; padding:10px 11px; }
+.tree-pathway-page .tree-node.process-node .tree-node-head em { max-width:calc(var(--node-width,198px) - 42px); padding:4px 9px; font-size:13px; }
 .tree-pathway-page .tree-node.process-node .tree-node-head i { width:23px; height:23px; font-size:12px; }
 .tree-pathway-page .tree-node.process-node strong { margin:0 0 5px; font-size:16px; }
-.tree-pathway-page .tree-stage-cards span { min-height:24px; padding:4px 8px; font-size:11.5px; }
+.tree-pathway-page .tree-stage-cards span { min-height:28px; padding:4px 8px; font-size:14px; }
 .tree-pathway-page .tree-node-head em { max-width:calc(var(--node-width,198px) - 52px); padding:5px 9px; font-size:11.5px; }
 .tree-pathway-page .tree-node-head i { width:24px; height:24px; font-size:13px; }
 .tree-pathway-page .tree-node strong { font-size:16px; line-height:1.1; margin-bottom:8px; }
-.tree-pathway-page .tree-metric small { font-size:15px; }
+.tree-pathway-page .tree-metric small { font-size:11.5px; }
 .tree-pathway-page .tree-metric b { font-size:14px; }
 .tree-pathway-page .storage-summary { padding:13px; }
 .tree-pathway-page .storage-summary span { font-size:10.5px; }
