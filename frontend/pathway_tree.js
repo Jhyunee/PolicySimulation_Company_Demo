@@ -2860,7 +2860,7 @@ async function submitPathwayChat(question){
           frameworkChatUsage.used = Number(errorPayload.detail.used ?? frameworkChatUsage.limit);
           frameworkChatUsage.remaining = 0;
         }
-        throw new Error(errorPayload.detail?.message || `Chat request failed (${res.status})`);
+        throw new Error((typeof errorPayload.detail === "string" ? errorPayload.detail : errorPayload.detail?.message) || `답변 요청에 실패했습니다 (${res.status})`);
       }
       const data = await res.json();
       answer.answer = data.answer || "";
