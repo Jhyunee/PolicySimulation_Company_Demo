@@ -118,7 +118,7 @@ function renderPersonaStage(){
 function renderPathwayStage(){
   return `<div class="demo-page">
     <section class="pathway-demo">
-      <iframe class="pathway-frame" title="Starbucks Korea 세 경로 시뮬레이션" src="pathway_demo.html?policy=company%2Fstarbucks&condition=3path&demo=1&view=input-background-20261002"></iframe>
+      <iframe class="pathway-frame" title="Starbucks Korea 세 경로 시뮬레이션" src="pathway_demo.html?policy=company%2Fstarbucks&condition=3path&demo=1&view=chat-context-fix-20261002"></iframe>
     </section>
   </div>`;
 }

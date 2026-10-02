@@ -2846,7 +2846,9 @@ async function submitPathwayChat(question){
         body:JSON.stringify({
           persona_name:answer.personaName,
           policy_key:currentPolicyKey,
-          question:`The user selected the following complete policy pathway:\n${context}\n\nYour prior position and rationale within this pathway are:\n${personaContext}\n\nUser question: ${question}\n\nRespond in English from your stakeholder perspective. Ground your response in the selected pathway and your prior predictions, rationale, and constraints. State your core position first, then explain only one key mechanism or constraint and one limitation. Use no more than two paragraphs and 3-5 concise sentences. Do not repeat the pathway description or numeric values at length.`,
+          question,
+          pathway_context:context,
+          persona_context:personaContext,
           history,
           participant_id:PolicyStudy.participantId || null,
           pathway:turn.path,
@@ -2860,7 +2862,7 @@ async function submitPathwayChat(question){
           frameworkChatUsage.used = Number(errorPayload.detail.used ?? frameworkChatUsage.limit);
           frameworkChatUsage.remaining = 0;
         }
-        throw new Error((typeof errorPayload.detail === "string" ? errorPayload.detail : errorPayload.detail?.message) || `답변 요청에 실패했습니다 (${res.status})`);
+        throw new Error((typeof errorPayload.detail === "string" ? errorPayload.detail : Array.isArray(errorPayload.detail) ? "입력 내용이 허용된 길이 또는 형식에 맞지 않습니다. 페이지를 새로고침한 뒤 다시 시도해 주세요." : errorPayload.detail?.message) || `답변 요청에 실패했습니다 (${res.status})`);
       }
       const data = await res.json();
       answer.answer = data.answer || "";
