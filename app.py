@@ -1,4 +1,4 @@
-"""Public, demo-only server for the Expanded Child Tax Credit research demo.
+"""Public, demo-only server for the Starbucks Korea 개인컵 프로그램 research demo.
 
 It serves no participant, study, survey, logging, or administration routes.
 """
@@ -17,7 +17,7 @@ from pydantic import BaseModel, Field
 ROOT = Path(__file__).resolve().parent
 FRONTEND = ROOT / "frontend"
 DATA = ROOT / "demo_data"
-POLICY_KEY = "usa/chi_ctc"
+POLICY_KEY = "company/starbucks"
 
 app = FastAPI(title="Policy Pathway Research Demo", docs_url=None, redoc_url=None)
 app.mount("/assets", StaticFiles(directory=str(FRONTEND / "assets")), name="assets")
@@ -43,7 +43,7 @@ def _phase_payload(raw: dict | None) -> dict | None:
         "phase": raw.get("phase"),
         "direction": raw.get("direction"),
         "posting_order": raw.get("posting_order") or [],
-        "phase_summary": "Policy inputs shown below were verified against the source policy document." if document_grounded else raw.get("phase_summary"),
+        "phase_summary": "문서 기반 고정 Inputs: 334개 매장은 친환경 여행 캠페인의 연계 범위이며 전국 매장 수가 아닙니다." if document_grounded else raw.get("phase_summary"),
         "state_type": raw.get("state_type"),
         "grounded_values": raw.get("grounded_values") if document_grounded else {},
         "grounded_evidence": raw.get("grounded_evidence") if document_grounded else [],
@@ -66,16 +66,15 @@ def _tree_payload() -> dict:
     return {
         "policy": {
             "key": POLICY_KEY,
-            "label": "Expanded Child Tax Credit",
-            "short_label": "CTC",
-            "title": "Child Tax Credit Pathway Explorer",
-            "description": "Explore how administrative capacity, payment delivery, and access barriers shape child poverty and longer-term well-being.",
+            "label": "Starbucks Korea 개인컵 프로그램",
+            "short_label": "Starbucks",
+            "title": "Starbucks Korea · 세 경로 비교",
+            "description": "2024년 개인컵 이용 건수를 추정하는 촉진·기준·제약 경로를 비교합니다.",
             "roles": [
-                {"key": "irs_administrator", "label": "IRS administrator"},
-                {"key": "payment_operator", "label": "Payment operator"},
-                {"key": "recipient_parent", "label": "Recipient parent"},
-                {"key": "nonfiler_parent", "label": "Non-filer parent"},
-                {"key": "outreach_navigator", "label": "Outreach navigator"},
+                {"key": "program_operator", "label": "기업 캠페인 담당자"},
+                {"key": "store_manager", "label": "점장"},
+                {"key": "store_partner", "label": "매장 파트너"},
+                {"key": "customer", "label": "리워드 고객"},
             ],
         },
         "format_version": raw.get("format_version"),
@@ -88,6 +87,8 @@ def _tree_payload() -> dict:
         "phases": phases,
         "available_phases": available,
         "complete": True,
+        "comparison": _read_json("comparison.json"),
+        "inner_schema": _read_json("inner_schema.json"),
         "nodes": nodes,
     }
 
@@ -96,7 +97,7 @@ def _graph_payload() -> dict:
     raw = _read_json("policy_graph.json")
     nodes = [{key: node.get(key) for key in ("id", "name", "type", "iad_category", "node_family", "is_actor", "persona_eligible", "summary")} for node in raw.get("nodes", [])]
     edges = [{key: edge.get(key) for key in ("id", "type", "source", "target", "deontic", "fact", "activation_condition", "execution_constraint")} for edge in raw.get("edges", [])]
-    return {"key": POLICY_KEY, "label": "Expanded Child Tax Credit", "kg": {"stats": {"nodes": len(nodes), "edges": len(edges)}, "nodes": nodes, "edges": edges}}
+    return {"key": POLICY_KEY, "label": "Starbucks Korea 개인컵 프로그램", "kg": {"stats": {"nodes": len(nodes), "edges": len(edges)}, "nodes": nodes, "edges": edges}}
 
 
 def _chat_context(persona_name: str) -> dict:
@@ -120,7 +121,7 @@ def _send_chat(context: dict, question: str, history: list[dict]) -> tuple[str, 
     if not api_key:
         raise HTTPException(503, "Persona chat is not configured. Set DEEPSEEK_API_KEY in Railway Variables.")
     messages = [
-        {"role": "system", "content": "You are one stakeholder persona in an exploratory policy simulation. Respond naturally in English from a first-person perspective. Ground your answer in the supplied persona and selected pathway, name one key mechanism or constraint, and state uncertainty where appropriate. Return exactly 4 or 5 concise complete sentences in one short paragraph. Never exceed 5 sentences; do not add a preamble, heading, or bullet list."},
+        {"role": "system", "content": "You are one stakeholder persona in an exploratory policy simulation. Respond naturally in Korean from a first-person perspective. Ground your answer in the supplied persona and selected pathway, name one key mechanism or constraint, and state uncertainty where appropriate. Return exactly 4 or 5 concise complete sentences in one short paragraph. Never exceed 5 sentences; do not add a preamble, heading, or bullet list."},
         {"role": "user", "content": json.dumps({"persona_profile": context["persona"], "simulation_target": context["target"], "policy_inputs": context["inputs"], "simulation_memory": context["memory"], "recent_dialogue": history[-4:], "user_question": question}, ensure_ascii=False)},
     ]
     response = requests.post(
@@ -148,17 +149,17 @@ def research_demo_page():
     return FileResponse(FRONTEND / "research_demo.html")
 
 
-@app.get("/api/policies/usa/chi_ctc/graph")
+@app.get("/api/policies/company/starbucks/graph")
 def ctc_graph():
     return _graph_payload()
 
 
-@app.get("/api/pathway/usa/chi_ctc/precomputed")
+@app.get("/api/pathway/company/starbucks/precomputed")
 def ctc_pathway_tree():
     return _tree_payload()
 
 
-@app.get("/api/pathway/usa/chi_ctc/personas")
+@app.get("/api/pathway/company/starbucks/personas")
 def ctc_personas():
     return {"policy": POLICY_KEY, "personas": _read_json("constructed_personas.json")}
 
@@ -166,13 +167,21 @@ def ctc_personas():
 @app.post("/api/pathway/persona-chat")
 def persona_chat(req: PersonaChatRequest):
     if req.policy_key != POLICY_KEY:
-        raise HTTPException(404, "Only the prepared CTC demonstration is available.")
+        raise HTTPException(404, "스타벅스 개인컵 실험 결과만 제공됩니다.")
     try:
         context = _chat_context(req.persona_name)
     except KeyError as exc:
         raise HTTPException(404, f"Persona not found: {req.persona_name}") from exc
     answer, usage = _send_chat(context, req.question.strip(), req.history)
     return {"persona_name": req.persona_name, "answer": answer, "usage": usage}
+
+
+@app.get("/api/company/source/{filename}")
+def source_document(filename: str):
+    allowed = {"Starbucks Korea_Impact Report_2024.pdf", "report_full_masked.md", "personal_cup_context_masked.md"}
+    if filename not in allowed:
+        raise HTTPException(404, "Source not found")
+    return FileResponse(DATA / filename)
 
 
 @app.get("/{asset_name}", include_in_schema=False)

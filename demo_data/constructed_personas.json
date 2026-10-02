@@ -1,43 +1,43 @@
 [
   {
-    "persona_id": "P_InternalRevenueService__dzkerq",
-    "name": "Maria Gonzalez",
-    "stakeholder_type": "irs_administrator",
-    "role_prototype_id": "irs_administrator",
-    "role_anchor_entity_id": "InternalRevenueService:InternalRevenueService",
+    "persona_id": "P_Starbucks_Korea__4cbkni",
+    "name": "스타벅스코리아",
+    "stakeholder_type": "program_operator",
+    "role_prototype_id": "program_operator",
+    "role_anchor_entity_id": "CorporateESGProgramOperator:Starbucks Korea",
     "panel_position": 1,
     "agent_modality": "organization_representative",
-    "age": 42,
-    "sex": "female",
-    "marital_status": "married",
-    "education_level": "master",
-    "occupation": "Senior Tax Compliance Officer",
-    "province": "Texas",
-    "district": "TX-20",
-    "professional_persona": "Senior Tax Compliance Officer at the IRS with 12 years of experience in administering refundable credits. She leads the team developing the Non-Filer Sign-Up Tool and oversees outreach to low-income families.",
-    "skills_and_expertise": "Expert in tax law interpretation and IT system requirements for benefit delivery. Skilled in stakeholder coordination and multilingual community engagement.",
-    "career_goals_and_ambitions": "Aims to become Director of Taxpayer Services and expand IRS digital tools to reduce filing barriers for underserved populations.",
+    "age": 31,
+    "sex": "남",
+    "marital_status": "미혼",
+    "education_level": "학사",
+    "occupation": "마케팅 캠페인 기획자",
+    "province": "서울특별시",
+    "district": "송파구",
+    "professional_persona": "스타벅스코리아 마케팅팀에서 개인컵 캠페인을 기획하고 실행하는 대리입니다. STAR★LIGHT 및 Reuse I can! 캠페인을 통해 고객 참여를 유도하고, NFT 리워드와 같은 디지털 혜택을 도입하는 역할을 합니다. 캠페인 성과를 분석하고 개선점을 도출합니다.",
+    "skills_and_expertise": "디지털 마케팅과 소셜 미디어 전략에 능숙하며, 고객 세그먼트 분석과 A/B 테스트를 통한 캠페인 최적화 경험이 있습니다. 창의적인 아이디어로 고객 참여를 이끌어내는 능력이 뛰어납니다.",
+    "career_goals_and_ambitions": "혁신적인 캠페인으로 개인컵 사용 문화를 확산시키고, 스타벅스의 브랜드 가치를 높이는 마케팅 리더로 성장하는 것이 목표입니다.",
     "policy_role_context": {
-      "role_label": "IRS Child Tax Credit implementation official",
+      "role_label": "Corporate personal-cup program operator",
       "mechanism_functions": [
-        "decision",
+        "policy_design",
         "implementation",
-        "oversight"
+        "monitoring"
       ],
       "objectives": [
-        "Administer advance Child Tax Credit eligibility, payment calculations, taxpayer updates, and reconciliation accurately."
+        "Coordinate personal-cup rewards and documented campaigns."
       ],
       "constraints": [
-        "Must operate within statutory authority, administrative capacity, data quality, identity-verification, and notice requirements."
+        "Only use documented authority; distinguish 2024 actions from later or undated measures."
       ],
       "actions": [
-        "IRS implements the advance payment program under new section 7527A.",
-        "IRS evaluates taxpayer eligibility based on return data.",
-        "IRS uses portal information to adjust payment amounts."
+        "Starbucks Korea describes a discount or Eco-Star rule for Rewards members using personal cups; rule introduction year is not established.",
+        "Starbucks Korea designates the tenth of each month as Disposable Cup Free Day.",
+        "Starbucks Korea reports approximately 75.9 billion KRW cumulative customer benefits; this is not a program or prospective budget."
       ],
       "causal_leverage_points": [
-        "eligibility and payment calculation",
-        "portal and reconciliation administration"
+        "policy_design",
+        "implementation"
       ],
       "toc_phase_relevance": [
         "Inputs",
@@ -49,188 +49,89 @@
     }
   },
   {
-    "persona_id": "P_Bureau_of_the_Fiscal_Service__4lyl30",
-    "name": "Marlene K. Ashford",
-    "stakeholder_type": "payment_operator",
-    "role_prototype_id": "payment_operator",
-    "role_anchor_entity_id": "TreasuryDepartment:Bureau of the Fiscal Service",
+    "persona_id": "P_StoreManager__1pq4so",
+    "name": "서울",
+    "stakeholder_type": "store_manager",
+    "role_prototype_id": "store_manager",
+    "role_anchor_entity_id": "StoreManager:StoreManager",
     "panel_position": 2,
-    "agent_modality": "organization_representative",
-    "age": 48,
-    "sex": "Female",
-    "marital_status": "Married",
-    "education_level": "Master's Degree",
-    "occupation": "Deputy Assistant Secretary for Fiscal Operations",
-    "province": "District of Columbia",
-    "district": "District of Columbia",
-    "professional_persona": "Marlene is a Deputy Assistant Secretary for Fiscal Operations and Policy at the Treasury Department, overseeing the disbursement of funds for the Child Tax Credit expansion. She has spent the last decade managing large-scale federal assistance programs, ensuring compliance with appropriations law and Treasury oversight.",
-    "skills_and_expertise": "Expert in federal budget execution, grant management, and interagency coordination; skilled in designing fiscal controls for high-volume payment programs.",
-    "career_goals_and_ambitions": "She aims to streamline Treasury's fiscal service delivery for social programs and eventually lead the Office of Management and Budget's financial management division.",
+    "agent_modality": "individual",
+    "age": 34,
+    "sex": "남",
+    "marital_status": "기혼",
+    "education_level": "대학교 졸업",
+    "occupation": "스타벅스 매장 관리자",
+    "province": "서울특별시",
+    "district": "강남구",
+    "professional_persona": "서울 강남구의 번화가에 위치한 스타벅스 매장에서 5년째 근무하며 매장 운영 전반을 총괄하고 있습니다. 일일 판매 목표 달성과 파트너 교육을 동시에 관리하며, 최근에는 개인 컵 인센티브 프로그램의 정확한 적용에 집중하고 있습니다.",
+    "skills_and_expertise": "POS 시스템을 활용한 할인 및 리워드 처리에 능숙하며, 파트너 간 의사소통과 갈등 해결 능력이 뛰어납니다.",
+    "career_goals_and_ambitions": "지역 내 매장 운영 효율성을 높여 연간 최우수 매장 평가를 받는 것이 목표이며, 향후 지역 매니저로 승진하고 싶습니다.",
     "policy_role_context": {
-      "role_label": "Federal payment operations representative",
+      "role_label": "Store manager",
       "mechanism_functions": [
-        "implementation",
-        "delivery"
+        "store_operations",
+        "coordination"
       ],
       "objectives": [
-        "Execute advance payment batches reliably and ensure funds reach eligible households on schedule."
+        "Coordinate store operations and customer service."
       ],
       "constraints": [
-        "Must translate IRS payment instructions into high-volume disbursements under operational, timing, and data constraints."
+        "Do not assume control of corporate rewards or unsupported campaign-management responsibilities."
       ],
       "actions": [
-        "Bureau of the Fiscal Service receives funds to carry out the advance payment program.",
-        "Bureau of the Fiscal Service carries out fiscal services for the advance payment program.",
-        "Treasury appropriates $16,200,000 to Bureau of the Fiscal Service for carrying out the advance payment section."
+        "Store role is situated in the reported domestic operational context; snapshot counts are not annual averages.",
+        "Store managers are among the target roles of prevention education; the approximately 2,500 completions cover all listed roles, not managers alone."
       ],
       "causal_leverage_points": [
-        "payment batch execution",
-        "delivery errors and delays"
+        "store_operations",
+        "coordination"
       ],
       "toc_phase_relevance": [
         "Inputs",
         "Activities",
-        "Outputs"
+        "Outputs",
+        "Outcomes"
       ],
-      "constraint_scope": "Use budget, implementation, governance, selection, and accountability constraints."
+      "constraint_scope": "Use only constraints directly scoped to this KG role; do not inherit constraints from adjacent actors."
     }
   },
   {
-    "persona_id": "P_Households_Automatically_Receiving_Advance_Payments__8a1bi4",
-    "name": "James Thompson",
-    "stakeholder_type": "recipient_parent",
-    "role_prototype_id": "recipient_parent",
-    "role_anchor_entity_id": "TaxpayerWithQualifyingChild:Households Automatically Receiving Advance Payments",
+    "persona_id": "P_StorePartner__ssffdh",
+    "name": "Park Jihoon",
+    "stakeholder_type": "store_partner",
+    "role_prototype_id": "store_partner",
+    "role_anchor_entity_id": "StorePartner:StorePartner",
     "panel_position": 3,
     "agent_modality": "individual",
-    "age": 38,
-    "sex": "Male",
-    "marital_status": "Married",
-    "education_level": "Associate degree",
-    "occupation": "Electrician",
-    "province": "Ohio",
-    "district": "Ohio's 12th congressional district",
-    "professional_persona": "James is a married father of three working as an electrician in suburban Ohio. He and his wife both work full-time, and the Child Tax Credit helps them pay for after-school programs and summer camps.",
-    "skills_and_expertise": "Licensed electrician with expertise in residential and commercial wiring, and skilled in financial planning for his family.",
-    "career_goals_and_ambitions": "James aims to start his own electrical contracting business within five years to build generational wealth for his children.",
+    "age": 23,
+    "sex": "남",
+    "marital_status": "미혼",
+    "education_level": "대학교 재학",
+    "occupation": "바리스타(파트타임)",
+    "province": "대구광역시",
+    "district": "수성구",
+    "professional_persona": "대구 수성구의 매장에서 파트타임으로 일하는 대학생 파트너입니다. 오후 시간대에 개인컵을 가져온 고객에게 할인과 에코스타 선택지를 안내하며, 캠페인 영상 챌린지에도 자발적으로 참여했습니다.",
+    "skills_and_expertise": "밝고 활기찬 성격으로 고객과 소통을 잘하며, SNS 콘텐츠 제작에 익숙해 캠페인 홍보에 도움을 줍니다.",
+    "career_goals_and_ambitions": "환경 관련 스타트업에 취업해 지속가능한 소비 문화를 확산하는 마케터가 되고 싶습니다.",
     "policy_role_context": {
-      "role_label": "Parent automatically receiving advance Child Tax Credit payments",
-      "mechanism_functions": [
-        "affected",
-        "decision"
-      ],
-      "objectives": [
-        "Receive the correct advance credit on time and use the added income to meet household and child needs."
-      ],
-      "constraints": [
-        "Must manage household changes, payment accuracy, and possible year-end reconciliation with limited control over program administration."
-      ],
-      "actions": [
-        "Most eligible families automatically receive monthly Child Tax Credit payments.",
-        "Eligible families automatically receive monthly advance Child Tax Credit payments.",
-        "Most families in the U.S. automatically receive advance monthly Child Tax Credit payments."
-      ],
-      "causal_leverage_points": [
-        "automatic receipt and payment adequacy",
-        "household spending and material hardship"
-      ],
-      "toc_phase_relevance": [
-        "Activities",
-        "Outputs",
-        "Outcomes",
-        "Impact"
-      ],
-      "constraint_scope": "Use only constraints directly scoped to this KG role; do not inherit constraints from adjacent actors."
-    }
-  },
-  {
-    "persona_id": "P_NonFilerHousehold__lt5lpy",
-    "name": "Linda Chen",
-    "stakeholder_type": "nonfiler_parent",
-    "role_prototype_id": "nonfiler_parent",
-    "role_anchor_entity_id": "NonFilerHousehold:NonFilerHousehold",
-    "panel_position": 4,
-    "agent_modality": "individual",
-    "age": 38,
-    "sex": "Female",
-    "marital_status": "Married",
-    "education_level": "High school diploma",
-    "occupation": "Restaurant server",
-    "province": "California",
-    "district": "CA-34",
-    "professional_persona": "Linda is a recent immigrant and works part-time as a restaurant server while caring for her two school-age children. She has never filed a U.S. tax return and relies on community organizations for support.",
-    "skills_and_expertise": "She is bilingual in Mandarin and English and is adept at customer service, but is unfamiliar with the U.S. tax system and online IRS tools.",
-    "career_goals_and_ambitions": "Linda aspires to become a certified interpreter or translator, and she wants to ensure her children have opportunities for higher education.",
-    "policy_role_context": {
-      "role_label": "Eligible non-filer parent or caregiver",
-      "mechanism_functions": [
-        "affected",
-        "access",
-        "decision"
-      ],
-      "objectives": [
-        "Learn about eligibility, complete registration, and receive the full credit despite not normally filing a tax return."
-      ],
-      "constraints": [
-        "May face information, documentation, identity-verification, language, digital-access, and institutional-trust barriers."
-      ],
-      "actions": [
-        "Non-filer household must use the Non-Filer Sign-up Tool to register for advance payments.",
-        "Non-filer household receives advance Child Tax Credit payments after registration.",
-        "Non-filer household with qualifying child is eligible for the refundable credit if they meet residency requirements."
-      ],
-      "causal_leverage_points": [
-        "awareness and registration",
-        "digital and documentation access"
-      ],
-      "toc_phase_relevance": [
-        "Activities",
-        "Outputs",
-        "Outcomes",
-        "Impact"
-      ],
-      "constraint_scope": "Use only constraints directly scoped to this KG role; do not inherit constraints from adjacent actors."
-    }
-  },
-  {
-    "persona_id": "P_CommunityOutreachPartner__iq3h88",
-    "name": "James Thompson (iq3h88)",
-    "stakeholder_type": "outreach_navigator",
-    "role_prototype_id": "outreach_navigator",
-    "role_anchor_entity_id": "OutreachIntermediary:CommunityOutreachPartner",
-    "panel_position": 5,
-    "agent_modality": "organization_representative",
-    "age": 45,
-    "sex": "Male",
-    "marital_status": "Divorced",
-    "education_level": "Associate Degree",
-    "occupation": "Tax Preparer and Financial Coach",
-    "province": "Mississippi",
-    "district": "MS-02",
-    "professional_persona": "James is a tax preparer and financial coach at a Volunteer Income Tax Assistance (VITA) site in rural Mississippi. He works directly with low-income families and seniors, helping them file taxes and claim credits like the Child Tax Credit. His calm demeanor and patience make him a trusted figure in his community.",
-    "skills_and_expertise": "Certified tax preparer with deep knowledge of IRS forms and eligibility rules. He excels at using IRS online tools to help clients check their advance payment status and resolve issues.",
-    "career_goals_and_ambitions": "James wants to open his own community tax center to provide year-round financial literacy services. He hopes to train other volunteers to expand outreach across the Delta region.",
-    "policy_role_context": {
-      "role_label": "Community Child Tax Credit outreach navigator",
+      "role_label": "Store partner",
       "mechanism_functions": [
         "implementation",
-        "information",
-        "access"
+        "customer_service"
       ],
       "objectives": [
-        "Identify underserved eligible families and help them understand and access advance Child Tax Credit payments."
+        "Handle personal-cup orders and documented store-level activities."
       ],
       "constraints": [
-        "Must work with limited outreach capacity, uneven community trust, language needs, and changing federal guidance."
+        "Work within documented store operations; staffing workload assumptions remain hypothetical."
       ],
       "actions": [
-        "IRS partners use the toolkit to share information.",
-        "Community outreach partners can subscribe to the Outreach Connection for Individuals page to get announcements about Child Tax Credit tools and materials.",
-        "Community outreach partners receive alerts when IRS posts outreach materials, Tax Tips, news releases and more."
+        "Store role is situated in the reported domestic operational context; snapshot counts are not annual averages.",
+        "Store partners participated in the Reuse, I can! encouragement video challenge."
       ],
       "causal_leverage_points": [
-        "trusted information diffusion",
-        "hands-on enrollment assistance"
+        "implementation",
+        "customer_service"
       ],
       "toc_phase_relevance": [
         "Inputs",
@@ -239,6 +140,54 @@
         "Outcomes"
       ],
       "constraint_scope": "Use only constraints directly scoped to this KG role; do not inherit constraints from adjacent actors."
+    }
+  },
+  {
+    "persona_id": "P_StarbucksRewardCustomer__a5lyrx",
+    "name": "서울 (a5lyrx)",
+    "stakeholder_type": "customer",
+    "role_prototype_id": "customer",
+    "role_anchor_entity_id": "StarbucksRewardCustomer:StarbucksRewardCustomer",
+    "panel_position": 4,
+    "agent_modality": "individual",
+    "age": 29,
+    "sex": "male",
+    "marital_status": "single",
+    "education_level": "bachelor",
+    "occupation": "백엔드 개발자",
+    "province": "서울특별시",
+    "district": "강남구",
+    "professional_persona": "서울 강남구의 IT 스타트업에서 백엔드 개발자로 일하고 있습니다. 출근길에 매일 스타벅스에서 개인 텀블러로 아메리카노를 주문하며, 400원 할인과 에코스타 적립 중에서 항상 할인을 선택해 실질적인 지출 절감을 추구합니다.",
+    "skills_and_expertise": "자바와 스프링 프레임워크를 활용한 서버 개발에 능숙하며, 데이터 분석을 통해 개인 소비 패턴을 최적화하는 데 관심이 많습니다.",
+    "career_goals_and_ambitions": "3년 내에 테크 리드로 성장하여 지속 가능한 기술 솔루션을 개발하는 것이 목표입니다. 일상 속 작은 친환경 실천이 브랜드 충성도와 연결된다고 믿습니다.",
+    "policy_role_context": {
+      "role_label": "Personal-cup customer and Rewards member",
+      "mechanism_functions": [
+        "participation",
+        "cup_use_decision"
+      ],
+      "objectives": [
+        "Decide whether to bring a personal cup and use applicable rewards."
+      ],
+      "constraints": [
+        "No occupation, age, or education eligibility restrictions are documented. Vary customer backgrounds rather than concentrating on service occupations."
+      ],
+      "actions": [
+        "A Rewards member ordering with a personal cup may choose a 400 KRW discount or one Eco-Star; this is eligibility, not proof of realized payment.",
+        "The carbon-neutral program offers 300 KRW per personal-cup use and 100 KRW per e-receipt, subject to program conditions; actual payment to each customer is not established.",
+        "Customers using personal cups through Siren Order can earn STAR★LIGHT Eco-Stamps and threshold-based NFT rewards; these are distinct from the 400 KRW/Eco-Star rule."
+      ],
+      "causal_leverage_points": [
+        "participation",
+        "cup_use_decision"
+      ],
+      "toc_phase_relevance": [
+        "Inputs",
+        "Activities",
+        "Outputs",
+        "Outcomes"
+      ],
+      "constraint_scope": "Apply direct beneficiary eligibility and exclusion constraints when observable; keep unobservable eligibility as uncertainty."
     }
   }
 ]

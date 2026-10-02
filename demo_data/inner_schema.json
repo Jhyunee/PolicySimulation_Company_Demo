@@ -1,0 +1,104 @@
+{
+  "phases": [
+    {
+      "phase": "Inputs",
+      "prediction_fields": [
+        {
+          "name": "travel_campaign_linked_stores_2024",
+          "unit": "stores",
+          "type": "int",
+          "description": "Documented 2024 To Earth, To Us travel campaign linked-store footprint. Not total national stores, personal-cup-only coverage, or verified store-level delivery."
+        }
+      ],
+      "discussion_points": [
+        "How does the documented input 'travel_campaign_linked_stores_2024' condition downstream implementation activities? Bounds the documented operating footprint of one related campaign; no assumed per-store use multiplier or additive contribution to national total."
+      ]
+    },
+    {
+      "phase": "Activities",
+      "prediction_fields": [
+        {
+          "name": "campaign_activity_intensity",
+          "unit": "qualitative",
+          "type": "str",
+          "description": "Overall intensity of 2024 personal-cup related implementation actions (e.g., staff training, in-store signage, app notifications, campaign events) relative to typical years. Qualitative scale: low, medium, high. Not a count of activities or budget."
+        },
+        {
+          "name": "digital_channel_activation_frequency",
+          "unit": "qualitative",
+          "type": "str",
+          "description": "Frequency of digital promotions (app push, Siren Order banners, email) encouraging personal-cup use during 2024. Qualitative scale: infrequent, periodic, frequent. Not a measure of customer exposure."
+        }
+      ],
+      "discussion_points": [
+        "How do the fixed Inputs (334 travel-campaign stores, STARLIGHT launch, April reuse campaign) shape the intensity and frequency of implementation actions?",
+        "Are there any documented operational constraints (e.g., staffing, budget) that could limit activity intensity? Unknown staffing is not zero or medium capacity.",
+        "How might the April 2024 nationwide reuse campaign (one month, combined personal and store cups) influence the overall activity intensity for personal-cup use?",
+        "Should the STARLIGHT project's Siren Order integration be considered a distinct activity stream, and how does that affect digital channel activation?"
+      ]
+    },
+    {
+      "phase": "Outputs",
+      "prediction_fields": [
+        {
+          "name": "personal_cup_order_share",
+          "unit": "percentage",
+          "type": "float",
+          "description": "Estimated share of total beverage orders that were placed with a personal cup during 2024, across all Starbucks Korea stores. Denominator: total beverage orders in 2024. Not a count of uses; auxiliary to the target."
+        },
+        {
+          "name": "campaign_reach_estimate",
+          "unit": "qualitative",
+          "type": "str",
+          "description": "Estimated reach of 2024 personal-cup campaigns among Starbucks Rewards members and general customers. Qualitative scale: limited, moderate, broad. Not a count of individuals reached."
+        }
+      ],
+      "discussion_points": [
+        "How do the Activities (campaign intensity, digital frequency) translate into the share of orders with personal cups? Consider the role of the STARLIGHT project and the April campaign.",
+        "What is the plausible range for personal_cup_order_share given historical trends and the documented campaigns? Avoid fabricating precise numbers without evidence.",
+        "How does the travel campaign's 334-store footprint affect the reach estimate? It is only one campaign's footprint, not national program scale.",
+        "Are there any documented barriers (e.g., customer awareness, store compliance) that could limit the output levels?"
+      ]
+    },
+    {
+      "phase": "Outcomes",
+      "prediction_fields": [
+        {
+          "name": "annual_personal_cup_uses_2024",
+          "unit": "uses",
+          "type": "int",
+          "description": "Total personal-cup use events in Starbucks Korea calendar year 2024. Not unique customers, store-cup uses, or incremental causal effect. This is the sole scored target."
+        },
+        {
+          "name": "customer_behavior_change",
+          "unit": "qualitative",
+          "type": "str",
+          "description": "Qualitative assessment of change in customer personal-cup usage behavior during 2024 compared to prior year. Scale: decreased, stable, increased. Not a numeric measure."
+        }
+      ],
+      "discussion_points": [
+        "How do the Outputs (personal cup order share, campaign reach) drive the total annual personal-cup uses? Consider the role of incentives (discount, Eco-Star, carbon points) and campaigns.",
+        "What is the plausible range for annual_personal_cup_uses_2024 given historical baseline (2021: 21.89M, 2022: 25.33M, 2023: 29.36M) and the 2024 activities? The target is withheld; do not retrieve it.",
+        "How might the STARLIGHT project's NFT rewards and the April reuse campaign influence customer behavior change?",
+        "Are there any confounding factors (e.g., seasonality, external events) that could affect the outcome?"
+      ]
+    },
+    {
+      "phase": "Impact",
+      "prediction_fields": [
+        {
+          "name": "environmental_impact_qualitative",
+          "unit": "qualitative",
+          "type": "str",
+          "description": "Qualitative description of downstream environmental effect attributable to personal-cup use in 2024, such as reduction in disposable cup waste or carbon emissions. Scale: negligible, modest, significant. Not a quantified CO2 or waste reduction without coefficients."
+        }
+      ],
+      "discussion_points": [
+        "How does the Outcome (annual personal-cup uses) translate into environmental impact? Without specific conversion coefficients, only qualitative assessment is possible.",
+        "What are the limitations in attributing environmental impact solely to personal-cup use, given other sustainability initiatives?",
+        "How might the impact be distributed across different regions or store types?",
+        "Are there any documented environmental targets or claims that could contextualize the impact assessment?"
+      ]
+    }
+  ]
+}
